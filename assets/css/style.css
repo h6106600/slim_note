@@ -1,0 +1,14 @@
+.head{
+    background-color:#2e6da4;
+    color:white;
+    padding:10px 0px;
+}
+.content div{
+    display:inline;
+}
+a{
+    text-decoration:none;
+}
+.word{
+    font-size:20px;
+}

@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# redirect non http protocol to https
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# if request matched format of an auto-versioned static file, correct the file path
+# ex: main.1452150669.css => main.css
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L,QSA]
+
+# if request does not matched any exist file & directory, redirect to index.php with all parameters
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
