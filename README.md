@@ -1,1 +1,1 @@
-"# slim_note" 
+slim_note
